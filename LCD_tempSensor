@@ -1,0 +1,57 @@
+#include "DHT.h"
+#define Type DHT11
+#include <LiquidCrystal.h>
+int rs=7;
+int en=8;
+int d4=9;
+int d5=10;
+int d6=11;
+int d7=12;
+LiquidCrystal lcd(?,?,?,?,?,?); 
+// Place the variables you just set in here
+
+int sensePin=?; //Choose the pin to connect the DHT11 signal pin to
+DHT HT(?,?); // Place the correct pintype and a variable for Type
+float ?; // Humidity variable
+float ?; // Celsius variable
+float ?; // Fahrenheit variable
+int setTime=?; // Create a time constant to initialize the sensor
+
+int dt=?; // Delay measurement constant
+
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(?); // Set the baud rate to 9600
+HT.begin();
+delay(?); // // Replace this with the variable you set for the initialize sensor time 
+lcd.begin(16,2);
+
+}
+
+void loop() {
+?=HT.readHumidity(); // Place humidity variable
+?=HT.readTemperature(); // Place Celsius variable
+?=HT.readTemperature(true); // Place Fahrenheit variable
+
+
+lcd.setCursor(0,0);
+lcd.print("Temp F= ");
+lcd.print(?); // Fahrenheit variable
+lcd.setCursor(0,1);
+lcd.print("Humidity= ");
+lcd.print(?); // Humidity variable
+lcd.print(" %");
+delay(?); // Replace with 500 ms
+lcd.clear();
+
+Serial.print("Humidity: ");
+Serial.print(?); // Humidity variable
+Serial.print("% Temperature ");
+Serial.print(?); // Celsius variable
+Serial.print(" C ");
+Serial.print(?); // Fahrenheit variable
+Serial.println(" F ");
+
+}
+
