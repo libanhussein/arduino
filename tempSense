@@ -1,0 +1,34 @@
+#include "DHT.h"
+#define Type DHT11
+int sensePin= ?; // Select a pin to connect to
+DHT HT(sensePin,Type);
+float ?; // Create a variable for humidity
+float ?; // Create a variable for temperature in Celsius
+float ?; // Create a variable for temperature in Fahrenheit
+int setTime= ?;// Create a time constant to initialize the sensor
+int dt= ?; // Create a time constant (delay time between measurements) for checking the parameters you set (something in milliseconds)
+
+void setup() {
+// put your setup code here, to run once:
+Serial.begin(9600);
+HT.begin();
+delay(?); // Replace this with the variable you set for the initialize sensor time 
+}
+
+
+void loop() {
+?=HT.readHumidity(); // Replace with variable you created for humidity
+?=HT.readTemperature(); // Replace with variable you created for temperature in Celsius
+?=HT.readTemperature(true); // Replace with variable you created for temperature in Fahrenheit
+
+
+Serial.print("Humidity: ");
+Serial.print(?); // Humidity variable
+Serial.print("% Temperature ");
+Serial.print(?); // Celsius temp. variable
+Serial.print(" C ");
+Serial.print(?); // Fahrenheit temp. variable
+Serial.println(" F ");
+delay(?); // Replace with delay time variable 
+
+}
